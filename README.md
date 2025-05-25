@@ -1,4 +1,6 @@
 # nixos-config
 
 
-test idk 
+test idk
+
+works on laptop?? (test)
