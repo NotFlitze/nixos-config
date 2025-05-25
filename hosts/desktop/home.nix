@@ -9,7 +9,7 @@
       ../../home-managerModules/rofi.nix
       ../../home-managerModules/kitty.nix
       ../../home-managerModules/git.nix
-#      ../../nixosModules/htop.nix
+      ../../home-managerModules/htop.nix
 #      ../../home-managerModules/btop.nix
 #      ../../home-managerModules/vscode.nix
     ];

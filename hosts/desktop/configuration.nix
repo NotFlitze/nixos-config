@@ -72,7 +72,6 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    htop
     neofetch
     pciutils
     linuxKernel.packages.linux_6_12.r8125
