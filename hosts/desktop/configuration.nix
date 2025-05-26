@@ -10,18 +10,18 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../nixosModules/steam.nix
-      ../../nixosModules/spotify.nix
-      ../../nixosModules/locates.nix
-      ../../nixosModules/bootloader.nix
-      ../../nixosModules/enableflakes.nix
-      ../../nixosModules/allowunfree.nix
-      ../../nixosModules/tree.nix
-      ../../home-managerModules/firefox.nix
-      ../../nixosModules/cmatrix.nix
-      ../../nixosModules/grim.nix
-      ../../nixosModules/gnome-tweaks.nix
-      ../../nixosModules/wl-clipboard.nix
+      ../../modules/nixosModules/steam.nix
+      ../../modules/nixosModules/spotify.nix
+      ../../modules/nixosModules/locates.nix
+      ../../modules/nixosModules/bootloader.nix
+      ../../modules/nixosModules/enableflakes.nix
+      ../../modules/nixosModules/allowunfree.nix
+      ../../modules/nixosModules/tree.nix
+      ../../modules/home-managerModules/firefox.nix
+      ../../modules/nixosModules/cmatrix.nix
+      ../../modules/nixosModules/grim.nix
+      ../../modules/nixosModules/gnome-tweaks.nix
+      ../../modules/nixosModules/wl-clipboard.nix
     ];
 
   networking.hostName = "nixos";
