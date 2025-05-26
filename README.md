@@ -1,6 +1,1 @@
-# nixos-config
-
-
-test idk
-
-works on laptop?? (test)
+ill add stuff here no time right now lol
