@@ -11,7 +11,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    pipewire = {
+    services.pipewire = {
       enable = true;
       pulse.enable = true;
       alsa.enable = true;

@@ -17,12 +17,13 @@
       ../../modules/nixosModules/enableflakes.nix
       ../../modules/nixosModules/allowunfree.nix
       ../../modules/nixosModules/tree.nix
-      ../../modules/home-managerModules/firefox.nix
       ../../modules/nixosModules/cmatrix.nix
       ../../modules/nixosModules/grim.nix
       ../../modules/nixosModules/gnome-tweaks.nix
       ../../modules/nixosModules/wl-clipboard.nix
       ../../modules/nixosModules/pipewire.nix
+      ../../modules/nixosModules/bluetooth.nix
+      ../../modules/nixosModules/consoleKeymap.nix
     ];
 
   networking.hostName = "desktop";
@@ -42,10 +43,7 @@
     layout = "de";
     variant = "";
   };
-
-  # Configure console keymap
-  console.keyMap = "de";
-
+  
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
