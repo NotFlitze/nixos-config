@@ -7,9 +7,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
+  imports = # check for home-manager config for these programs
     [
       ./hardware-configuration.nix
+
       ../../modules/nixosModules/steam.nix
       ../../modules/nixosModules/spotify.nix
       ../../modules/nixosModules/locates.nix
@@ -24,6 +25,22 @@
       ../../modules/nixosModules/pipewire.nix
       ../../modules/nixosModules/bluetooth.nix
       ../../modules/nixosModules/consoleKeymap.nix
+      ../../modules/nixosModules/vim.nix
+      ../../modules/nixosModules/wget.nix
+      ../../modules/nixosModules/fastfetch.nix
+      ../../modules/nixosModules/evtest.nix
+      ../../modules/nixosModules/modrinth-app.nix
+      ../../modules/nixosModules/alejandra.nix
+      ../../modules/nixosModules/keepassxc.nix
+      ../../modules/nixosModules/thunderbird.nix
+      ../../modules/nixosModules/ethtool.nix
+      ../../modules/nixosModules/libreoffice-still.nix
+      ../../modules/nixosModules/cpu-x.nix
+      ../../modules/nixosModules/prusa-slicer.nix
+      ../../modules/nixosModules/geekbench.nix
+      ../../modules/nixosModules/glmark2.nix
+
+      ../../modules/nixosModules/prusa-slicer.nix
     ];
 
   networking.hostName = "desktop";
@@ -55,8 +72,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    vim
-    wget
     neofetch
     pciutils
     linuxKernel.packages.linux_6_12.r8125
