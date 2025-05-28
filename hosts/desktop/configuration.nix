@@ -42,29 +42,35 @@
       ../../modules/nixosModules/freecad-wayland.nix
       ../../modules/nixosModules/openssh.nix
       ../../modules/nixosModules/blueman.nix
+      ../../modules/nixosModules/networkmanager.nix
+      ../../modules/nixosModules/gdm.nix    # remove after hyprland
+      ../../modules/nixosModules/gnome.nix    # remove after hyprland
+      ../../modules/nixosModules/xkb.nix    # remove after hyprland
+      ../../modules/nixosModules/printing.nix
+      ../../modules/nixosModules/hardware.nix
+      ../../modules/nixosModules/pciutils.nix
+      ../../modules/nixosModules/btop-rocm.nix
+      
     ];
 
   networking.hostName = "desktop";
   
   # Enable networking
-  networking.networkmanager.enable = true;
+  # networking.networkmanager.enable = true;
 
-  services.xserver.displayManager.gdm.wayland = true;
+  # services.xserver.displayManager.gdm.wayland = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
-  };
+  # services.xserver.xkb = {
+  #   layout = "de";
+  # };
   
   # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  
+  # services.printing.enable = true;
 
   users.users.user = {
     isNormalUser = true;
@@ -72,17 +78,17 @@
   };
 
   environment.systemPackages = with pkgs; [
-    neofetch
-    pciutils
+#    neofetch
+#    pciutils
     linuxKernel.packages.linux_6_12.r8125
-    modrinth-app
-    btop-rocm
+#    modrinth-app
+    
   ];
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
+  #hardware.graphics = {
+  #  enable = true;
+  #  enable32Bit = true;
+  #};
 
   system.stateVersion = "25.05";
 
