@@ -39,8 +39,9 @@
       ../../modules/nixosModules/prusa-slicer.nix
       ../../modules/nixosModules/geekbench.nix
       ../../modules/nixosModules/glmark2.nix
-
-      ../../modules/nixosModules/prusa-slicer.nix
+      ../../modules/nixosModules/freecad-wayland.nix
+      ../../modules/nixosModules/openssh.nix
+      ../../modules/nixosModules/blueman.nix
     ];
 
   networking.hostName = "desktop";
@@ -48,8 +49,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.wayland = true;
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;

@@ -4,13 +4,9 @@
 #   |_||_|_/_\_\\__\___/ .__/
 #                      |_|
 
+{ config, lib, pkgs, inputs, ... }:
+
 {
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
-}: {
   imports = [
     ./hardware-configuration.nix
     ../../nixosModules/cowsay.nix
@@ -33,7 +29,6 @@
       enable = true;
       pulse.enable = true;
       alsa.enable = true;
-      alsa.support32Bit = true;
       wireplumber.enable = true;
       jack.enable = true;
       audio.enable = true;
@@ -112,7 +107,7 @@
   services.dbus.enable = true;
   programs.dconf.enable = true;
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [ # done
     vim
     wget
     neofetch
