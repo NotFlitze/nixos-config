@@ -50,45 +50,19 @@
       ../../modules/nixosModules/hardware.nix
       ../../modules/nixosModules/pciutils.nix
       ../../modules/nixosModules/btop-rocm.nix
-      
+      ../../modules/nixosModules/Kernel_package_r8125.nix
+      ../../modules/nixosModules/neofetch.nix
+      ../../modules/nixosModules/trackpad
     ];
 
+  modules.trackpad.enable = false;
+
   networking.hostName = "desktop";
-  
-  # Enable networking
-  # networking.networkmanager.enable = true;
-
-  # services.xserver.displayManager.gdm.wayland = true;
-
-  # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  # services.xserver.xkb = {
-  #   layout = "de";
-  # };
-  
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
   users.users.user = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
   };
-
-  environment.systemPackages = with pkgs; [
-#    neofetch
-#    pciutils
-    linuxKernel.packages.linux_6_12.r8125
-#    modrinth-app
-    
-  ];
-
-  #hardware.graphics = {
-  #  enable = true;
-  #  enable32Bit = true;
-  #};
 
   system.stateVersion = "25.05";
 
