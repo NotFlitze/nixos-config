@@ -23,7 +23,6 @@
 
 #  services.xserver.enable = true;
 
-
   networking = {
     hostName = "nixtop";
     firewall.allowedTCPPorts = [22];

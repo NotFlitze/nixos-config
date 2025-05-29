@@ -52,10 +52,8 @@
       ../../modules/nixosModules/btop-rocm.nix
       ../../modules/nixosModules/Kernel_package_r8125.nix
       ../../modules/nixosModules/neofetch.nix
-      ../../modules/nixosModules/trackpad
+      ../../modules/nixosModules/trackpad.nix
     ];
-
-  modules.trackpad.enable = false;
 
   networking.hostName = "desktop";
 
