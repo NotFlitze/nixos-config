@@ -53,7 +53,10 @@
       ../../modules/nixosModules/Kernel_package_r8125.nix
       ../../modules/nixosModules/neofetch.nix
       ../../modules/nixosModules/trackpad.nix
+      ../../modules/nixosModules/fprintd.nix
     ];
+
+   modules.trackpad.enable = false;
 
   networking.hostName = "desktop";
 

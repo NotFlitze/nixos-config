@@ -12,9 +12,9 @@
   ];
 
 
-  services = {
-    libinput.enable = true; # touchpad
-  };
+#  services = {
+#    libinput.enable = true; # touchpad
+#  };
 
 #  fonts.packages = with pkgs; [
 #    noto-fonts
@@ -27,19 +27,11 @@
     hostName = "nixtop";
     firewall.allowedTCPPorts = [22];
   };
-  
 
   users.users.user = {
     isNormalUser = true;
     extraGroups = ["wheel" "networkmanager"];
   };
-
-  services.fprintd.enable = true;
-  services.fprintd.tod.enable = true;
-  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-broadcom;
-
-  services.dbus.enable = true;
-  programs.dconf.enable = true;
 
   system.stateVersion = "24.11"; # Don't change that do research !!!
 }
