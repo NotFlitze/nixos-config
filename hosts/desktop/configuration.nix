@@ -56,7 +56,7 @@
       ../../modules/nixosModules/fprintd.nix
     ];
 
-   modules.trackpad.enable = false;
+  modules.trackpad.enable = false;
 
   networking.hostName = "desktop";
 
