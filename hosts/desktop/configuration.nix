@@ -13,7 +13,7 @@
 
       ../../modules/nixosModules/defaults/gui_computer_defaults.nix
 
-      ../../modules/nixosModules/Kernel_package_r8125.nix                     # extra import, change path!!
+      ../../modules/nixosModules/packages/drivers/_drivers-default.nix                     # extra import, change path!!
     ];
 
   modules.trackpad.enable = false;
