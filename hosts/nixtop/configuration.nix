@@ -22,5 +22,7 @@
     extraGroups = ["wheel" "networkmanager"];
   };
 
+#  environment.systemPackages = with pkgs; [ nerd-fonts.hack ];
+
   system.stateVersion = "24.11";
 }
