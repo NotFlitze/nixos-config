@@ -9,7 +9,7 @@
       ./cowsay.nix
       ./ethtool.nix
       ./evtest.nix
-      ./fastfetch.nix
+#      ./fastfetch.nix
       ./geekbench.nix
       ./glmark2.nix
       ./neofetch.nix
