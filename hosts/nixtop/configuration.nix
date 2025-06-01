@@ -55,7 +55,6 @@
       ../../modules/nixosModules/fprintd.nix
   ];
 
-
 #  services = {
 #    libinput.enable = true; # touchpad
 #  };
