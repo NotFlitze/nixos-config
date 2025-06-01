@@ -16,14 +16,13 @@
     ];
 
   home.packages = with pkgs; [
-    hyprpaper
     bibata-cursors
     nerd-fonts.hack
     vesktop
     vscodium
   ];
 
-  fonts.fontconfig.enable = true;
+#  fonts.fontconfig.enable = true;                        # use once you want a system wide font
 
   home.stateVersion = "24.11";
   programs.home-manager.enable = true;
