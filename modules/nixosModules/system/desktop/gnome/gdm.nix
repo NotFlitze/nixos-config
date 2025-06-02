@@ -11,7 +11,14 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    services.xserver.displayManager.gdm.wayland = true;
-    services.xserver.displayManager.gdm.enable = true;
+    services.xserver = {
+      enable = true;
+
+      displayManager.gdm = {
+        enable = true;
+        wayland = true;
+      };
+      layout = "de";
+    };
   };
 }
