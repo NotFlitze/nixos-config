@@ -34,7 +34,7 @@ in {
         #   source = ./nixos.png;
         #   type = "kitty-direct";
         #   "nixos";
-        #   height = 10;
+        #   height = 10;ei 
         #   width = 20;
         #   padding = {
         #     top = 2;
@@ -87,7 +87,7 @@ in {
             type = "gpu";
             format = "{2} {7} {4}";
             temp = true;
-            dedicated-total = true;
+#            dedicated-total = true;
 #            hideType = if config.networking.hostName == "desktop" then "integrated" else null;     # give Home-Manager the config.networking.hostName thing somehow
             key = " │ 󰢮 ";
           }
@@ -97,7 +97,7 @@ in {
           }
           {
             type = "board";
-            key = " │ [MB] ";
+            key = " │  ";
           }
           {
             type = "disk";
