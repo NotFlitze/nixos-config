@@ -2,7 +2,6 @@
 
 let
   cfg = config.modules.fastfetch;
-#  hostname = "desktop";
 in {
   options.modules.fastfetch.enable = lib.mkOption {
     type = lib.types.bool;
@@ -30,23 +29,11 @@ in {
           };
         };
 
-        # {
-        #   source = ./nixos.png;
-        #   type = "kitty-direct";
-        #   "nixos";
-        #   height = 10;ei 
-        #   width = 20;
-        #   padding = {
-        #     top = 2;
-        #     left = 2;
-        #   };
-        # };
-
         modules = [
           "break"
           {
             type = "custom";
-            format = " ╭──────────────────────────────Software──────────────────────────────╮";
+            format = " ╭───────────────────────────Software───────────────────────────╮";
           }
           {
             type = "os";
@@ -55,10 +42,6 @@ in {
           {
             type = "kernel";
             key = " │  ";
-          }
-          {
-            type = "bootmgr";
-            key = " │ 󰌽 ";
           }
           {
             type = "wm";
@@ -70,46 +53,58 @@ in {
           }
           {
             type = "custom";
-            format = " ╰────────────────────────────────────────────────────────────────────╯";
+            format = " ╰──────────────────────────────────────────────────────────────╯";
           }
           "break"
           {
             type = "custom";
-            format = " ╭──────────────────────────────Hardware──────────────────────────────╮";
+            format = " ╭───────────────────────────Hardware───────────────────────────╮";
           }
           {
             type = "cpu";
-            format = "{1} {3} {7} {8}";
+            format = "{1} ({3}) {8}";
             temp = true;
             key = " │  ";
           }
           {
             type = "gpu";
-            format = "{2} {7} {4}";
-            temp = true;
+            format = "{2} {4}";
+            temp = true;              # works on desktop?
 #            dedicated-total = true;
 #            hideType = if config.networking.hostName == "desktop" then "integrated" else null;     # give Home-Manager the config.networking.hostName thing somehow
             key = " │ 󰢮 ";
-          }
-          {
-            type = "memory";
-            key = " │ 󰑭 ";
           }
           {
             type = "board";
             key = " │  ";
           }
           {
+            type = "memory";
+            key = " │ 󰑭 ";
+            format = "{1} / {2} {4}";
+            percent = {
+              type = 2;
+            };
+          }
+          {
             type = "disk";
             key = " │ 󰋊 ";
+            format = "{1} / {2} {13}";
+            percent = {
+              type = 2;
+            };
           }
           {
             type = "swap";
             key = " │ ⇄ ";
+            format = "{1} / {2} {4}";
+            percent = {
+              type = 2;
+            };
           }
           {
             type = "custom";
-            format = " ╰────────────────────────────────────────────────────────────────────╯";
+            format = " ╰──────────────────────────────────────────────────────────────╯";
           }
           "break"
           {
