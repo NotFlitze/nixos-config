@@ -13,6 +13,6 @@
       ./spotify.nix
       ./steam.nix
       ./thunderbird.nix
-      ./signal-dektop.nix
+      ./signal-desktop.nix
     ];
 }
