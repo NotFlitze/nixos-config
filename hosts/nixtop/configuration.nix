@@ -22,7 +22,10 @@
     extraGroups = ["wheel" "networkmanager"];
   };
 
-#  environment.systemPackages = with pkgs; [ nerd-fonts.hack ];
+  environment.systemPackages = with pkgs; [
+    openjdk17
+  ];
+
 
   system.stateVersion = "24.11";
 }
