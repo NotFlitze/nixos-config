@@ -14,5 +14,6 @@
       ./steam.nix
       ./thunderbird.nix
       ./signal-desktop.nix
+      ./lmstudio.nix
     ];
 }
