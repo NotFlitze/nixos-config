@@ -1,0 +1,30 @@
+{ config, pkgs, ... }:
+
+{
+  imports = # check for home-manager config for these programs
+    [
+      ./hardware-configuration.nix
+
+      ../../modules/nixosModules/defaults/gui_computer_defaults.nix
+
+      ../../modules/nixosModules/packages/drivers/_drivers-default.nix
+      
+      
+      
+      ../../modules/nixosModules/system/core/bootloader_grub.nix
+
+    ];
+
+  modules.trackpad.enable = false;
+  modules.bootloader.enable = false;
+
+  networking.hostName = "server";
+
+  users.users.user = {
+    isNormalUser = true;
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
+
+  system.stateVersion = "25.05";
+
+}
