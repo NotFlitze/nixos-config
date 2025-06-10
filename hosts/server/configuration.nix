@@ -5,8 +5,6 @@
     [
       ./hardware-configuration.nix
 
-      ../../modules/nixosModules/defaults/gui_computer_defaults.nix
-
       ../../modules/nixosModules/packages/drivers/_drivers-default.nix
       
       
