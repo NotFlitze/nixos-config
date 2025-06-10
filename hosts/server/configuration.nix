@@ -12,7 +12,6 @@
 
     ];
 
-  modules.trackpad.enable = false;
   modules.bootloader.enable = false;
 
   networking.hostName = "server";
