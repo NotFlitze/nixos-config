@@ -9,9 +9,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stylix = {
+      url = "github:danth/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, ... } @ inputs:
     let
       mkHost = { hostname, username, system }: nixpkgs.lib.nixosSystem {
         inherit system;
@@ -21,6 +26,7 @@
         };
 
         modules = [
+          stylix.nixosModules.stylix
           ./hosts/${hostname}/configuration.nix
           ./hosts/${hostname}/hardware-configuration.nix
 
