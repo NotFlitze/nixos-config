@@ -41,8 +41,8 @@
       };
     in {
       nixosConfigurations = {
-        nixtop = mkHost {
-          hostname = "nixtop";
+        laptop = mkHost {
+          hostname = "laptop";
           username = "user";
           system = "x86_64-linux";
         };

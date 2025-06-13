@@ -14,7 +14,7 @@
   ];
 
   networking = {
-    hostName = "nixtop";
+    hostName = "laptop";
   };
 
   users.users.user = {
