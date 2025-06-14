@@ -15,7 +15,7 @@ in {
   config = lib.mkIf cfg.enable {
     stylix = {
       enable = true;
-      image = ../../wallpapers/wallpaper1.jpg;
+      image = ../../../../wallpapers/wallpaper1.jpg;
       # base16Scheme = {
       #   base00 = "282936";
       #   base01 = "3a3c4e";

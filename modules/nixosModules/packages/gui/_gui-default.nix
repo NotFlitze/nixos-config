@@ -15,5 +15,6 @@
       ./thunderbird.nix
       ./signal-desktop.nix
       ./lmstudio.nix
+      ./stylix.nix
     ];
 }
