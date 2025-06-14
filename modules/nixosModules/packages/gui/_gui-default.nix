@@ -15,6 +15,6 @@
       ./thunderbird.nix
       ./signal-desktop.nix
       ./lmstudio.nix
-      ./stylix.nix
+#      ./stylix.nix             # do colours your selfe xD
     ];
 }
