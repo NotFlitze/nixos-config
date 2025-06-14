@@ -22,9 +22,23 @@
 
   networking.hostName = "server";
 
+  networking.hostId = "f6b91edc";
+
   users.users.user = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
+  };
+
+  boot = {
+    supportedFilesystems = ["zfs"];
+    zfs = {
+      forceImportRoot = false;
+      extraPools = ["nasdata"];
+    };
+  
+    loader.grub = {
+      zfsSupport = true;
+    };
   };
 
   system.stateVersion = "25.05";
