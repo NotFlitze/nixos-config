@@ -1,29 +1,27 @@
-#    ___ ___ _ ___ _____ _ _ 
+#    ___ ___ _ ___ _____ _ _
 #   (_-</ -_) '_\ V / -_) '_|
-#   /__/\___|_|  \_/\___|_|  
-#                           
-
-{ config, pkgs, ... }:
-
+#   /__/\___|_|  \_/\___|_|
+#
 {
-  imports = # check for home-manager config for these programs
+  config,
+  pkgs,
+  ...
+}: {
+  imports =
+    # check for home-manager config for these programs
     [
       ./hardware-configuration.nix
 
-      
-      ../../modules/nixosModules/defaults/cli_computer_defaults.nix 
-     
-      ../../modules/nixosModules/system/core/bootloader_grub.nix
+      ../../modules/nixosModules/defaults/cli_computer_defaults.nix
 
+      ../../modules/nixosModules/system/core/bootloader_grub.nix
     ];
 
-# --- module options --- #
+  # --- module options --- #
 
   modules.bootloader.enable = false;
 
-
-
-# --- host spetific stuff --- #
+  # --- host spetific stuff --- #
 
   networking.hostName = "server";
 
@@ -33,14 +31,13 @@
 
   networking.firewall.allowPing = true;
 
-
   services.samba = {
     enable = true;
     openFirewall = true;
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
-        "server string" = "Server";
+        "server string" = "server";
         "security" = "user";
         "map to guest" = "never";
       };
@@ -61,7 +58,7 @@
         "browseable" = "no";
         "read only" = "no";
         "valid users" = "sambauser1";
-        "force group" = "sambauser";
+        "force group" = "sambauser1grp";
         "create mask" = "0600";
         "directory mask" = "0700";
         "guest ok" = "no";
@@ -72,7 +69,7 @@
         "browseable" = "no";
         "read only" = "no";
         "valid users" = "sambauser2";
-        "force group" = "sambauser";
+        "force group" = "sambauser2grp";
         "create mask" = "0600";
         "directory mask" = "0700";
         "guest ok" = "no";
@@ -80,39 +77,45 @@
     };
   };
 
-  services.samba-wsdd = { 			# for Windows
+  services.samba-wsdd = {
+    # for Windows
     enable = true;
     openFirewall = true;
   };
 
-  services.avahi = { 				# for macOS/iOS & Linux-Clients per mDNS/Bonjour
+  services.avahi = {
+    # for macOS/iOS & Linux-Clients per mDNS/Bonjour
     publish.enable = true;
     publish.userServices = true;
-    nssmdns4 = true;
+#    nssmdns4 = true;
     enable = true;
     openFirewall = true;
   };
 
-# --- user + groups --- #
+  # --- user + groups --- #
 
   users.users.user = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   users.users.sambauser1 = {
     isNormalUser = true;
-    extraGroups = [ "sambauser" ];
+    extraGroups = ["sambauser"];
   };
 
   users.users.sambauser2 = {
     isNormalUser = true;
-    extraGroups = [ "sambauser" ];
+    extraGroups = ["sambauser"];
   };
 
   users.groups.sambauser = {};
 
-# --- boot --- #
+  users.groups.sambauser1grp = {};
+
+  users.groups.sambauser2grp = {};
+
+  # --- boot --- #
 
   boot = {
     supportedFilesystems = ["zfs"];
@@ -120,14 +123,9 @@
       forceImportRoot = false;
       extraPools = ["nasdata"];
     };
-  
-    loader.grub = {
-      zfsSupport = true;
-    };
   };
 
-# --- #
+  # --- #
 
   system.stateVersion = "25.05";
-
 }
