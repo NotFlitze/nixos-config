@@ -12,9 +12,7 @@
       ../../modules/home-managerModules/htop.nix
       ../../modules/home-managerModules/firefox.nix
       ../../modules/home-managerModules/fastfetch.nix
-
-#      ../../modules/home-managerModules/btop.nix
-#      ../../modules/home-managerModules/vscode.nix
+      ../../modules/home-managerModules/vesktop.nix
     ];
 
   home.packages = with pkgs; [
@@ -23,8 +21,6 @@
     vesktop
     vscodium
   ];
-
-#  fonts.fontconfig.enable = true;                        # use once you want a system wide font
 
   home.stateVersion = "24.11";
   programs.home-manager.enable = true;
