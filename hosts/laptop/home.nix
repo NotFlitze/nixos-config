@@ -18,7 +18,6 @@
   home.packages = with pkgs; [
     bibata-cursors
     nerd-fonts.hack
-    vesktop
     vscodium
   ];
 
