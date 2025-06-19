@@ -18,7 +18,7 @@ in
         enable = true;
         wayland = true;
       };
-      layout = "de";
+      xkb.layout = "de";
     };
   };
 }

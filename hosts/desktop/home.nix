@@ -12,6 +12,7 @@
       ../../modules/home-managerModules/htop.nix
       ../../modules/home-managerModules/firefox.nix
       ../../modules/home-managerModules/fastfetch.nix
+      ../../modules/home-managerModules/vesktop.nix
 
 #      ../../modules/home-managerModules/btop.nix
 #      ../../modules/home-managerModules/vscode.nix
@@ -21,7 +22,6 @@
     hyprpaper
     bibata-cursors
     nerd-fonts.hack
-    vesktop
     vscodium
   ];
 

@@ -13,7 +13,6 @@
       url = "github:danth/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
   };
 
   outputs = { self, nixpkgs, home-manager, stylix, ... } @ inputs:
@@ -29,19 +28,21 @@
           stylix.nixosModules.stylix
           ./hosts/${hostname}/configuration.nix
           ./hosts/${hostname}/hardware-configuration.nix
-
           home-manager.nixosModules.home-manager
 
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
 
-            home-manager.extraSpecialArgs = {
-              inherit inputs username;
+              extraSpecialArgs = {
+                inherit inputs username;
+              };
+
+              users.${username} = import ./hosts/${hostname}/home.nix;
+
+              backupFileExtension = "backup";
             };
-
-            home-manager.users.${username} =
-              import ./hosts/${hostname}/home.nix;
           }
         ];
       };
