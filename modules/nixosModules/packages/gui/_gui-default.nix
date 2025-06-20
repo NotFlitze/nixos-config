@@ -16,6 +16,7 @@
       ./signal-desktop.nix
       ./lmstudio.nix
       ./obsidian.nix
+      ./tor-browser.nix
 #      ./stylix.nix             # do colours your selfe xD
     ];
 }
