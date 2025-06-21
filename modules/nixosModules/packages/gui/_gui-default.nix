@@ -17,6 +17,7 @@
       ./lmstudio.nix
       ./obsidian.nix
       ./tor-browser.nix
+      ./nwg-displays.nix
 #      ./stylix.nix             # do colours your selfe xD
     ];
 }
