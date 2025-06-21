@@ -3,14 +3,8 @@
   {
     imports =
     [
-      ../../modules/home-managerModules/hyprland.nix
-      ../../modules/home-managerModules/waybar.nix
-      ../../modules/home-managerModules/hyprpaper.nix
-      ../../modules/home-managerModules/rofi.nix
-      ../../modules/home-managerModules/kitty.nix
       ../../modules/home-managerModules/git.nix
       ../../modules/home-managerModules/htop.nix
-      ../../modules/home-managerModules/firefox.nix
       ../../modules/home-managerModules/fastfetch.nix
     ];
 

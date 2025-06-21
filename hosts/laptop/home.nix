@@ -13,6 +13,7 @@
       ../../modules/home-managerModules/firefox.nix
       ../../modules/home-managerModules/fastfetch.nix
       ../../modules/home-managerModules/vesktop.nix
+      ../../modules/home-managerModules/cava.nix
     ];
 
   home.packages = with pkgs; [
