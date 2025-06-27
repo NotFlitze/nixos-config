@@ -13,15 +13,11 @@
       ./hardware-configuration.nix
 
       ../../modules/nixosModules/defaults/cli_computer_defaults.nix
-      
-      ../../modules/nixosModules/defaults/gui_computer_defaults.nix
     ];
 
   # --- module options --- #
 
-  modules.bootloader.enable = false;
-  modules.modrinth-app.enable = false;
-  modules.lmstudio.enable = false;
+  modules.bootloader.enable = false; # fix
   
   # --- boot --- #
   
