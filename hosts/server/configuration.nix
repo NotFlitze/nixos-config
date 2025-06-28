@@ -14,13 +14,20 @@
       ./hardware-configuration.nix
 
       ../../modules/nixosModules/defaults/cli_computer_defaults.nix
-
-      ../../modules/nixosModules/system/core/bootloader_grub.nix
     ];
 
   # --- module options --- #
 
   modules.bootloader.enable = false;
+
+  # --- boot --- #
+
+  boot.loader.grub = {
+    enable = true;
+    efiSupport = false;
+    useOSProber = true;
+    device = "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_500GB_S4XBNF0M804421N";
+  };
 
   # --- host spetific stuff --- #
 
@@ -88,7 +95,7 @@
     # for macOS/iOS & Linux-Clients per mDNS/Bonjour
     publish.enable = true;
     publish.userServices = true;
-#    nssmdns4 = true;
+#    ssmdns4 = true;
     enable = true;
     openFirewall = true;
   };
