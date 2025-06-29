@@ -13,6 +13,18 @@
       ../../modules/home-managerModules/fastfetch.nix
     ];
 
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "backup-server" = {
+        hostname = "backup-server";
+        user = "user";
+        identityFile = "~/.ssh/backup-server";
+        identitiesOnly = true;
+      };
+    };
+  };
+
   home.stateVersion = "25.05";
   programs.home-manager.enable = true;
 }

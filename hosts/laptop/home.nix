@@ -28,6 +28,24 @@
     vscodium
   ];
 
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "backup-server" = {
+        hostname = "backup-server";
+        user = "user";
+        identityFile = "~/.ssh/backup-server";
+        identitiesOnly = true;
+      };
+      "server" = {
+        hostname = "server";
+        user = "user";
+        identityFile = "~/.ssh/server";
+        identitiesOnly = true;
+      };
+    };
+  };
+
   home.stateVersion = "24.11";
   programs.home-manager.enable = true;
 }

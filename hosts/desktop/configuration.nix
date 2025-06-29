@@ -27,6 +27,20 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
+  # --- ssh --- #
+
+    services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
+  };
+
+  users.users."user".openssh.authorizedKeys.keys = [
+    ""
+  ];
+
   system.stateVersion = "25.05";
 
 }
