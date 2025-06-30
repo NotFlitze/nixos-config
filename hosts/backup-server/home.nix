@@ -11,8 +11,8 @@
   ...
 }: {
   imports = [
-    ../../modules/home-managerModules/git.nix
-    ../../modules/home-managerModules/fastfetch.nix
+    ../../modules/home-manager/git.nix
+    ../../modules/home-manager/fastfetch.nix
   ];
 
   home.stateVersion = "25.05";

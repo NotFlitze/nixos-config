@@ -2,34 +2,20 @@
 #   (_-</ -_) '_\ V / -_) '_|
 #   /__/\___|_|  \_/\___|_|
 #
-
 {
   config,
   pkgs,
   ...
 }: {
-  imports =
-    # check for home-manager config for these programs
-    [
-      ./hardware-configuration.nix
+  imports = [
+    ./hardware-configuration.nix
 
-      ../../modules/nixosModules/defaults/cli_computer_defaults.nix
-    ];
+    ../../modules/nixosModules/defaults/cli_computer_defaults.nix
+  ];
 
-  # --- module options --- #
+  # --- module options --- # 
 
-  modules.bootloader.enable = false;
-
-  # --- boot --- #
-
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = false;
-    useOSProber = true;
-    device = "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_500GB_S4XBNF0M804421N";
-  };
-
-  # --- host spetific stuff --- #
+  # --- networking --- #
 
   networking.hostName = "server";
 
@@ -38,6 +24,46 @@
   networking.firewall.enable = true;
 
   networking.firewall.allowPing = true;
+
+  # --- ssh --- #
+
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
+  };
+
+  users.users."user".openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM8fhpSSDobR9JQ7/QXzvGJ2piFjUU051rFJnTMn2wUe user@laptop" # from laptop
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOOj/Vm27o+LN3nA/gBnJDRFFOWNxal/sj4ZNqWp8Qka user@desktop" # from desktop
+  ];
+
+  # --- user + groups --- #
+
+  users.users.user = {
+    isNormalUser = true;
+    extraGroups = ["networkmanager" "wheel"];
+  };
+
+  users.users.sambauser1 = {
+    isNormalUser = true;
+    extraGroups = ["sambauser"];
+  };
+
+  users.users.sambauser2 = {
+    isNormalUser = true;
+    extraGroups = ["sambauser"];
+  };
+
+  users.groups.sambauser = {};
+
+  users.groups.sambauser1grp = {};
+
+  users.groups.sambauser2grp = {};
+
+  # --- host spetific stuff --- #
 
   services.samba = {
     enable = true;
@@ -95,33 +121,10 @@
     # for macOS/iOS & Linux-Clients per mDNS/Bonjour
     publish.enable = true;
     publish.userServices = true;
-#    ssmdns4 = true;
+    #    ssmdns4 = true;
     enable = true;
     openFirewall = true;
   };
-
-  # --- user + groups --- #
-
-  users.users.user = {
-    isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel"];
-  };
-
-  users.users.sambauser1 = {
-    isNormalUser = true;
-    extraGroups = ["sambauser"];
-  };
-
-  users.users.sambauser2 = {
-    isNormalUser = true;
-    extraGroups = ["sambauser"];
-  };
-
-  users.groups.sambauser = {};
-
-  users.groups.sambauser1grp = {};
-
-  users.groups.sambauser2grp = {};
 
   # --- boot --- #
 
@@ -133,20 +136,14 @@
     };
   };
 
-  # --- ssh --- #
-
-    services.openssh = {
+  boot.loader.grub = {
     enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-    };
+    efiSupport = false;
+    useOSProber = true;
+    device = "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_500GB_S4XBNF0M804421N";
   };
 
-  users.users."user".openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM8fhpSSDobR9JQ7/QXzvGJ2piFjUU051rFJnTMn2wUe user@laptop"          # from laptop
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOOj/Vm27o+LN3nA/gBnJDRFFOWNxal/sj4ZNqWp8Qka user@desktop"         # from desktop
-  ];
+  # --- #
 
   system.stateVersion = "25.05";
 }

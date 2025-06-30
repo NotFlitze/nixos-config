@@ -6,7 +6,7 @@ in
 {
   options.modules.trackpad.enable = lib.mkOption {
     type = lib.types.bool;
-    default = true;
+    default = false;
     description = "Enable trackpad module";
   };
 

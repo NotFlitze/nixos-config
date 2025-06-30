@@ -9,24 +9,20 @@
   {
     imports =
     [
-      ../../modules/home-managerModules/hyprland.nix
-      ../../modules/home-managerModules/waybar.nix
-      ../../modules/home-managerModules/hyprpaper.nix
-      ../../modules/home-managerModules/rofi.nix
-      ../../modules/home-managerModules/kitty.nix
-      ../../modules/home-managerModules/git.nix
-      ../../modules/home-managerModules/htop.nix
-      ../../modules/home-managerModules/firefox.nix
-      ../../modules/home-managerModules/fastfetch.nix
-      ../../modules/home-managerModules/vesktop.nix
-      ../../modules/home-managerModules/cava.nix
-
-#      ../../modules/home-managerModules/btop.nix
-#      ../../modules/home-managerModules/vscode.nix
+      ../../modules/home-manager/hyprland.nix
+      ../../modules/home-manager/waybar.nix
+      ../../modules/home-manager/hyprpaper.nix
+      ../../modules/home-manager/rofi.nix
+      ../../modules/home-manager/kitty.nix
+      ../../modules/home-manager/git.nix
+      ../../modules/home-manager/htop.nix
+      ../../modules/home-manager/firefox.nix
+      ../../modules/home-manager/fastfetch.nix
+      ../../modules/home-manager/vesktop.nix
+      ../../modules/home-manager/cava.nix
     ];
 
   home.packages = with pkgs; [
-    hyprpaper
     bibata-cursors
     nerd-fonts.hack
     vscodium

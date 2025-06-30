@@ -16,25 +16,6 @@
 
   # --- module options --- #
 
-  modules.bootloader.enable = false; # fix
-
-  # --- boot --- #
-
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = false;
-    useOSProber = true;
-    device = "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_250GB_S3YJNB0K358813Y";
-  };
-
-  boot = {
-    supportedFilesystems = ["zfs"];
-    zfs = {
-      forceImportRoot = false;
-      extraPools = ["backup"];
-    };
-  };
-
   # --- networking --- #
 
   networking.hostName = "backup-server";
@@ -56,9 +37,9 @@
   };
 
   users.users."user".openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHVFK4CONQnfkGHlL2PjylknlgE54anLeqlOZvXn3g27 user@server"          # from server
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO8y5HzRXz4sUFmgcrMI3cbBlYQJmwPI3/5mAPTWi0Fv user@desktop"         # from desktop
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMOZ1CpP7Rc1kkuOnOUhbMGdEVs9xEeuxC5CnIaHPaID user@laptop"          # from laptop
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHVFK4CONQnfkGHlL2PjylknlgE54anLeqlOZvXn3g27 user@server" # from server
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO8y5HzRXz4sUFmgcrMI3cbBlYQJmwPI3/5mAPTWi0Fv user@desktop" # from desktop
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMOZ1CpP7Rc1kkuOnOUhbMGdEVs9xEeuxC5CnIaHPaID user@laptop" # from laptop
   ];
 
   # --- user + groups --- #
@@ -67,6 +48,25 @@
     isNormalUser = true;
     extraGroups = ["networkmanager" "wheel"];
   };
+
+  # --- boot --- #
+
+  boot.loader.grub = {
+    enable = true;
+    efiSupport = false;
+    useOSProber = true;
+    device = "/dev/disk/by-id/ata-Samsung_SSD_860_EVO_250GB_S3YJNB0K358813Y";
+  };
+
+  boot = {
+    supportedFilesystems = ["zfs"];
+    zfs = {
+      forceImportRoot = false;
+      extraPools = ["backup"];
+    };
+  };
+
+  # --- #
 
   system.stateVersion = "24.11";
 }

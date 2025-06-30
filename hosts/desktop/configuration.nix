@@ -1,35 +1,30 @@
-#       _        _   _            
-#    __| |___ __| |_| |_ ___ _ __ 
+#       _        _   _
+#    __| |___ __| |_| |_ ___ _ __
 #   / _` / -_|_-< / /  _/ _ \ '_ \
 #   \__,_\___/__/_\_\\__\___/ .__/
-#                           |_|   
-
-{ config, pkgs, ... }:
-
+#                           |_|
 {
-  imports = # check for home-manager config for these programs
-    [
-      ./hardware-configuration.nix
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
 
-      ../../modules/nixosModules/defaults/gui_computer_defaults.nix
+    ../../modules/nixosModules/defaults/gui_computer_defaults.nix
 
-      ../../modules/nixosModules/packages/drivers/_drivers-default.nix
-    ];
+    ../../modules/nixosModules/packages/drivers/_drivers-default.nix
+  ];
 
-  modules.trackpad.enable = false;
+  # --- module options --- #
 
-#  modules.libreoffice-still.enable = false;
+  # --- networking --- #
 
   networking.hostName = "desktop";
 
-  users.users.user = {
-    isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
-
   # --- ssh --- #
 
-    services.openssh = {
+  services.openssh = {
     enable = true;
     settings = {
       PasswordAuthentication = false;
@@ -41,6 +36,19 @@
     ""
   ];
 
-  system.stateVersion = "25.05";
+  # --- user + groups --- #
 
+  users.users.user = {
+    isNormalUser = true;
+    extraGroups = ["networkmanager" "wheel"];
+  };
+
+  # --- boot --- #
+
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # --- #
+
+  system.stateVersion = "25.05";
 }
