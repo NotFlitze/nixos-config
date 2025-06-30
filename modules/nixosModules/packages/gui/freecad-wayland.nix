@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.freecad-wayland;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.freecad-wayland;
+in {
   options.modules.freecad-wayland.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
@@ -11,6 +13,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ freecad-wayland ];
+    environment.systemPackages = with pkgs; [freecad-wayland];
   };
 }

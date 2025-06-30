@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules."cpu-x";
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules."cpu-x";
+in {
   options.modules."cpu-x".enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
@@ -11,6 +13,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ cpu-x ];
+    environment.systemPackages = with pkgs; [cpu-x];
   };
 }

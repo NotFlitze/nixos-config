@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules."prusa-slicer";
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules."prusa-slicer";
+in {
   options.modules."prusa-slicer".enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
@@ -11,6 +13,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ prusa-slicer ];
+    environment.systemPackages = with pkgs; [prusa-slicer];
   };
 }

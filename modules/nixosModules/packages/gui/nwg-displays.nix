@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.nwg-displays;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.nwg-displays;
+in {
   options.modules.nwg-displays.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
@@ -11,6 +13,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ nwg-displays ];
+    environment.systemPackages = with pkgs; [nwg-displays];
   };
 }

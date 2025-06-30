@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.prismlauncher;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.prismlauncher;
+in {
   options.modules."prismlauncher".enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
@@ -11,6 +13,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ prismlauncher ];
+    environment.systemPackages = with pkgs; [prismlauncher];
   };
 }

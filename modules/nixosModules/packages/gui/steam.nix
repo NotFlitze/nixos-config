@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.steam;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.steam;
+in {
   options.modules.steam.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
