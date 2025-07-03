@@ -17,5 +17,6 @@
       ./tree.nix
       ./vim.nix
       ./wget.nix
+      ./tailscale.nix
     ];
 }
