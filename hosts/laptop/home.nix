@@ -20,7 +20,7 @@
       ../../modules/home-manager/fastfetch.nix
       ../../modules/home-manager/vesktop.nix
       ../../modules/home-manager/cava.nix
-      ../../modules/home-manager/stylix.nix
+#      ../../modules/home-manager/stylix.nix
     ];
 
   home.packages = with pkgs; [
