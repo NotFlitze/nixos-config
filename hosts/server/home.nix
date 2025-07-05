@@ -18,7 +18,7 @@
     matchBlocks = {
       "backup-server" = {
         hostname = "backup-server";
-        user = "user";
+        user = "root";
         identityFile = "~/.ssh/backup-server";
         identitiesOnly = true;
       };
