@@ -8,5 +8,6 @@
       ./enableflakes.nix
       ./hardware.nix
       ./locates.nix
+      ./agenix.nix
     ];
 }

@@ -13,9 +13,14 @@
       url = "github:danth/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, stylix, agenix, ... } @ inputs:
     let
       mkHost = { hostname, username, system }: nixpkgs.lib.nixosSystem {
         inherit system;
@@ -29,6 +34,7 @@
           ./hosts/${hostname}/configuration.nix
           ./hosts/${hostname}/hardware-configuration.nix
           home-manager.nixosModules.home-manager
+          inputs.agenix.nixosModules.default
 
           {
             home-manager = {
