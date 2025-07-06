@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 let
   cfg = config.modules.agenix;
@@ -12,7 +12,7 @@ in
 
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
-      inputs.agenix.packages."${pkgs.system}".default
+      inputs.agenix.packages.${pkgs.system}.default
     ];
   };
 }

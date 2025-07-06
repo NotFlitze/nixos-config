@@ -126,6 +126,41 @@
     openFirewall = true;
   };
 
+  age.identityPaths = [
+    "/root/.ssh/mailbox.org_agenix_key"
+  ];
+
+  age.secrets.mailbox-smtp-password = {
+    file = ../../secrets/mailbox-smtp-password.age;
+    owner = "user";
+    group = "users";
+    mode = "0400";
+  };
+  
+  programs.msmtp = {
+  enable = true;
+    accounts.default = {
+      auth = true;
+      tls = true;
+      tls_starttls = true;
+      host = "smtp.mailbox.org";
+      port = 587;
+      from = "server-notifications@mailbox.org";
+      user = "felixbo@mailbox.org";
+      passwordeval = "cat /run/agenix/mailbox-smtp-password";
+    };
+    setSendmail = true;
+  };
+
+  services.zfs.zed = {
+    enableMail = true;
+    settings = {
+      ZED_EMAIL_ADDR = [ "felixbo@mailbox.org" ];
+      ZED_EMAIL_PROG = "${pkgs.msmtp}/bin/msmtp";
+      ZED_EMAIL_OPTS = "@ADDRESS@";
+    };
+  };
+
   # --- boot --- #
 
   boot = {
