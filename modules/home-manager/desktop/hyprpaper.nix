@@ -24,7 +24,7 @@ in
     };
   };
   home.file.".config/hypr/wallpapers" = {
-    source = ../../wallpapers;
+    source = ../../../wallpapers;
     recursive = true;
   };
   

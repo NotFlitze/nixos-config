@@ -8,9 +8,8 @@
   {
     imports =
     [
-      ../../modules/home-manager/git.nix
-      ../../modules/home-manager/htop.nix
-      ../../modules/home-manager/fastfetch.nix
+      ../../modules/home-manager/core/_default.nix
+      ../../modules/home-manager/server/_default.nix
     ];
 
   programs.ssh = {

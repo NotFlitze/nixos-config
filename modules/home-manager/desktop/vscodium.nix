@@ -1,18 +1,19 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.modules.vscode;
+  cfg = config.modules.vscodium;
 in
 {
-  options.modules.vscode.enable = lib.mkOption {
+  options.modules.vscodium.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
-    description = "Enable the vscode module";
+    description = "Enable the vscodium module";
   };
 
   config = lib.mkIf cfg.enable {
     programs.vscode = {
       enable = true;
+      package = pkgs.vscodium;
     };
   };
 }
