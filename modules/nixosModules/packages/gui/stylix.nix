@@ -15,11 +15,10 @@ in {
   config = lib.mkIf cfg.enable {
     stylix = {
       enable = true;
-      targets.kitty.enable = false;
       # image = ../../../../wallpapers/wallpaper1.jpg;
       base16Scheme = {
         base00 = "000000"; # Background (true black)
-        base01 = "000000"; # Lighter background (status bars, etc.)
+        base01 = "1e1e1e"; # Lighter background (status bars, etc.)
         base02 = "222222"; # Selection background
         base03 = "292929"; # Comments, subtle UI
         base04 = "8ecae6"; # Dark foreground (status bar text)

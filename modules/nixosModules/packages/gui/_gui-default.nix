@@ -17,6 +17,6 @@
     ./nwg-displays.nix
     ./prismlauncher.nix
     ./nwg-look.nix
-#    ./stylix.nix             # do colours your selfe xD
+#    ./stylix.nix               # now a homemanager module remove if it works
   ];
 }

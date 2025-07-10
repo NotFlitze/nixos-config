@@ -9,18 +9,23 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix = {
-      url = "github:danth/stylix/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     agenix = {
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    niri-flake = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    stylix = {
+      url = "github:danth/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, agenix, ... } @ inputs:
+  outputs = { self, nixpkgs, home-manager, agenix, stylix, niri-flake, ... } @ inputs:
     let
       mkHost = { hostname, username, system }: nixpkgs.lib.nixosSystem {
         inherit system;
@@ -30,23 +35,25 @@
         };
 
         modules = [
-          stylix.nixosModules.stylix
           ./hosts/${hostname}/configuration.nix
-          ./hosts/${hostname}/hardware-configuration.nix
+#          ./hosts/${hostname}/hardware-configuration.nix
           home-manager.nixosModules.home-manager
-          inputs.agenix.nixosModules.default
+          agenix.nixosModules.default
+          stylix.nixosModules.stylix
 
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-
               extraSpecialArgs = {
                 inherit inputs username;
               };
-
-              users.${username} = import ./hosts/${hostname}/home.nix;
-
+              users.${username} = { ... }: {
+                imports = [
+                  ./hosts/${hostname}/home.nix
+                  niri-flake.homeModules.niri
+                ];
+              };
               backupFileExtension = "backup";
             };
           }

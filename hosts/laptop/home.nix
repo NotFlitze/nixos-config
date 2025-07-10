@@ -20,6 +20,8 @@
       ../../modules/home-manager/fastfetch.nix
       ../../modules/home-manager/vesktop.nix
       ../../modules/home-manager/cava.nix
+      ../../modules/home-manager/alacritty.nix
+
 #      ../../modules/home-manager/stylix.nix
     ];
 
@@ -46,6 +48,8 @@
       };
     };
   };
+
+  programs.niri.enable = true;
 
   home.stateVersion = "24.11";
   programs.home-manager.enable = true;
