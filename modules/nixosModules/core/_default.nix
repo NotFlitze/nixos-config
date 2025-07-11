@@ -3,20 +3,23 @@
   {
     imports =
     [
+      ./agenix.nix
       ./alejandra.nix
+      ./allowunfree.nix
       ./btop-rocm.nix
-      ./cmatrix.nix
+      ./consoleKeymap.nix
       ./cowsay.nix
+      ./enableflakes.nix
       ./ethtool.nix
-      ./evtest.nix
-#      ./fastfetch.nix
-      ./geekbench.nix
-      ./glmark2.nix
+      ./fastfetch.nix
+      ./hardware.nix
+      ./locates.nix
       ./neofetch.nix
+      ./networkmanager.nix
       ./pciutils.nix
+      ./tailscale.nix
       ./tree.nix
       ./vim.nix
       ./wget.nix
-      ./tailscale.nix
     ];
 }

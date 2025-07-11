@@ -10,7 +10,8 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../modules/nixosModules/defaults/cli_computer_defaults.nix
+    ../../modules/nixosModules/core/_default.nix
+    ../../modules/nixosModules/server/_default.nix
   ];
 
   # --- module options --- # 

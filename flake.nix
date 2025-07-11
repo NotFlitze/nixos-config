@@ -36,7 +36,7 @@
 
         modules = [
           ./hosts/${hostname}/configuration.nix
-#          ./hosts/${hostname}/hardware-configuration.nix
+          ./hosts/${hostname}/hardware-configuration.nix
           home-manager.nixosModules.home-manager
           agenix.nixosModules.default
           stylix.nixosModules.stylix

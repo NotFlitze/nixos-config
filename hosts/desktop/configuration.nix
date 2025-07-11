@@ -11,9 +11,8 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../modules/nixosModules/defaults/gui_computer_defaults.nix
-
-    ../../modules/nixosModules/packages/drivers/_drivers-default.nix
+    ../../modules/nixosModules/core/_default.nix
+    ../../modules/nixosModules/desktop/_default.nix
   ];
 
   # --- module options --- #
@@ -47,6 +46,10 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # --- host spetific stuff --- #
+
+  environment.systemPackages = with pkgs; [ linuxKernel.packages.linux_6_12.r8125 ];      # check if you still need that 
 
   # --- #
 

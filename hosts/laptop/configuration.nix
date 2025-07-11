@@ -11,9 +11,10 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
+#    ./hardware-configuration.nix
 
-    ../../modules/nixosModules/defaults/gui_computer_defaults.nix
+    ../../modules/nixosModules/core/_default.nix
+    ../../modules/nixosModules/desktop/_default.nix
   ];
 
   # --- module options --- #

@@ -32,7 +32,7 @@ echo ""
 info "Creating local snapshot: ${LOCAL_SNAPSHOT}"
 sudo zfs snapshot "${LOCAL_SNAPSHOT}"
 echo ""
-info "Sending snapshot to ${TARGET_HOST}:${REMOTE_DATASET} ..."
+info "Sending snapshot to ${TARGET_HOST}:${REMOTE_DATASET} ..."         # if the backup-server isnt reachable it bricks it self fix that
 
 if sudo zfs send "${LOCAL_SNAPSHOT}" | ssh "${TARGET_HOST}" "zfs receive -v ${REMOTE_DATASET}"; then
     echo ""

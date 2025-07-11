@@ -12,6 +12,6 @@ in
 
   config = lib.mkIf cfg.enable {
     services.xserver.desktopManager.gnome.enable = true;
-    programs.dconf.enable = true;
+    programs.dconf.enable = true;                               # you might need to add that even if you remove gnome
   };
 }

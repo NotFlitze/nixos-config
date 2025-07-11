@@ -15,4 +15,4 @@ in
   };
 }
 
-# screenshot tool
+# screenshot tool might need slurp too or just use the build in niri one 
