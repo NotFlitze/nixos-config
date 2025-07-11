@@ -9,51 +9,20 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
+    ../../modules/nixos/core/_default.nix
+    ../../modules/nixos/desktop/_default.nix
 
-    ../../modules/nixosModules/core/_default.nix
-    ../../modules/nixosModules/desktop/_default.nix
+    ./boot.nix
+    ./module_toggle.nix
+    ./networking.nix
+    ./ssh.nix
+    ./user+groups.nix
+    ./kernel_packages.nix
   ];
 
-  # --- module options --- #
+  # test stuff
 
-  # --- networking --- #
-
-  networking.hostName = "desktop";
-
-  # --- ssh --- #
-
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-    };
-  };
-
-  users.users."user".openssh.authorizedKeys.keys = [
-    ""
-  ];
-
-  # --- user + groups --- #
-
-  users.users.user = {
-    isNormalUser = true;
-    extraGroups = ["networkmanager" "wheel"];
-  };
-
-  # --- boot --- #
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # --- host spetific stuff --- #
-
-  environment.systemPackages = with pkgs; [ linuxKernel.packages.linux_6_12.r8125 ];      # check if you still need that 
-
-  # --- #
-
-   services.displayManager.sessionPackages = [ pkgs.niri ];     # adds niri to the gdm display manager
+  services.displayManager.sessionPackages = [ pkgs.niri ];     # adds niri to the gdm display manager
 
   system.stateVersion = "25.05";
 }

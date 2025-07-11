@@ -11,50 +11,18 @@
   ...
 }: {
   imports = [
-#    ./hardware-configuration.nix
+    ../../modules/nixos/core/_default.nix
+    ../../modules/nixos/desktop/_default.nix
 
-    ../../modules/nixosModules/core/_default.nix
-    ../../modules/nixosModules/desktop/_default.nix
+    ./boot.nix
+    ./module_toggle.nix
+    ./networking.nix
+    ./ssh.nix
+    ./user+groups.nix
   ];
 
-  # --- module options --- #
-
-  modules.trackpad.enable = true;
+  # test stuff
   
-  modules.fprintd.enable = true;
-
-  # --- networking --- #
-
-  networking.hostName = "laptop";
-
-  # --- ssh --- #
-
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-    };
-  };
-
-  users.users."user".openssh.authorizedKeys.keys = [
-    ""
-  ];
-
-  # --- user + groups --- #
-
-  users.users.user = {
-    isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager"];
-  };
-
-  # --- boot --- #
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # --- #
-
  services.displayManager.sessionPackages = [ pkgs.niri ];     # adds niri to the gdm display manager
 
   system.stateVersion = "24.11";
