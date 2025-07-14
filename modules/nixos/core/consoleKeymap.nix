@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.consoleKeymap;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.consoleKeymap;
+in {
   options.modules.consoleKeymap.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

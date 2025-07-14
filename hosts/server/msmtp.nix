@@ -1,8 +1,6 @@
-{ ... }: 
-
-  {
+{...}: {
   programs.msmtp = {
-  enable = true;
+    enable = true;
     accounts.default = {
       auth = true;
       tls = true;
@@ -15,4 +13,4 @@
     };
     setSendmail = true;
   };
-  }
+}

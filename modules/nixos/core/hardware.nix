@@ -1,9 +1,10 @@
-{ config, lib, ... }:
-
-let
-  cfg = config.modules.hardware;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.modules.hardware;
+in {
   options.modules.hardware.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

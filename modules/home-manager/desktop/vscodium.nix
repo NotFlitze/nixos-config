@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.vscodium;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.vscodium;
+in {
   options.modules.vscodium.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

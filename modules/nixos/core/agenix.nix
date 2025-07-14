@@ -1,9 +1,12 @@
-{ config, lib, pkgs, inputs, ... }:
-
-let
-  cfg = config.modules.agenix;
-in
 {
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}: let
+  cfg = config.modules.agenix;
+in {
   options.modules.agenix.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

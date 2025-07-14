@@ -1,6 +1,4 @@
-{ ... }: 
-
-  {
+{...}: {
   users.users.user = {
     isNormalUser = true;
     extraGroups = ["networkmanager" "wheel"];
@@ -21,4 +19,4 @@
   users.groups.sambauser1grp = {};
 
   users.groups.sambauser2grp = {};
-  }
+}

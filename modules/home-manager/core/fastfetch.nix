@@ -1,6 +1,9 @@
-{ config, lib, pkgs, ... }:
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   cfg = config.modules.fastfetch;
 in {
   options.modules.fastfetch.enable = lib.mkOption {
@@ -69,9 +72,9 @@ in {
           {
             type = "gpu";
             format = "{2} {4}";
-            temp = true;              # works on desktop?
-#            dedicated-total = true;
-#            hideType = if config.networking.hostName == "desktop" then "integrated" else null;     # give Home-Manager the config.networking.hostName thing somehow
+            temp = true; # works on desktop?
+            #            dedicated-total = true;
+            #            hideType = if config.networking.hostName == "desktop" then "integrated" else null;     # give Home-Manager the config.networking.hostName thing somehow
             key = " │ 󰢮 ";
           }
           {
@@ -116,4 +119,3 @@ in {
     };
   };
 }
-

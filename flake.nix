@@ -25,9 +25,21 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, agenix, stylix, niri-flake, ... } @ inputs:
-    let
-      mkHost = { hostname, username, system }: nixpkgs.lib.nixosSystem {
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    agenix,
+    stylix,
+    niri-flake,
+    ...
+  } @ inputs: let
+    mkHost = {
+      hostname,
+      username,
+      system,
+    }:
+      nixpkgs.lib.nixosSystem {
         inherit system;
 
         specialArgs = {
@@ -48,7 +60,7 @@
               extraSpecialArgs = {
                 inherit inputs username;
               };
-              users.${username} = { ... }: {
+              users.${username} = {...}: {
                 imports = [
                   ./hosts/${hostname}/home.nix
                   niri-flake.homeModules.niri
@@ -59,31 +71,31 @@
           }
         ];
       };
-    in {
-      nixosConfigurations = {
-        laptop = mkHost {
-          hostname = "laptop";
-          username = "user";
-          system = "x86_64-linux";
-        };
+  in {
+    nixosConfigurations = {
+      laptop = mkHost {
+        hostname = "laptop";
+        username = "user";
+        system = "x86_64-linux";
+      };
 
-        desktop = mkHost {
-          hostname = "desktop";
-          username = "user";
-          system = "x86_64-linux";
-        };
+      desktop = mkHost {
+        hostname = "desktop";
+        username = "user";
+        system = "x86_64-linux";
+      };
 
-        server = mkHost {
-          hostname = "server";
-          username = "user";
-          system = "x86_64-linux";
-        };
+      server = mkHost {
+        hostname = "server";
+        username = "user";
+        system = "x86_64-linux";
+      };
 
-        backup-server = mkHost {
-          hostname = "backup-server";
-          username = "user";
-          system = "x86_64-linux";
-        };
+      backup-server = mkHost {
+        hostname = "backup-server";
+        username = "user";
+        system = "x86_64-linux";
       };
     };
+  };
 }

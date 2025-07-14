@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.rofi;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.rofi;
+in {
   options.modules.rofi.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

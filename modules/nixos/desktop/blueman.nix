@@ -1,9 +1,10 @@
-{ config, lib, ... }:
-
-let
-  cfg = config.modules.services.blueman;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.modules.services.blueman;
+in {
   options.modules.services.blueman.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

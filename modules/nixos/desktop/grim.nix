@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.grim;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.grim;
+in {
   options.modules.grim.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
@@ -11,8 +13,8 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ grim ];
+    environment.systemPackages = with pkgs; [grim];
   };
 }
+# screenshot tool might need slurp too or just use the build in niri one
 
-# screenshot tool might need slurp too or just use the build in niri one 

@@ -22,8 +22,8 @@
   ];
 
   # test stuff
-  
- services.displayManager.sessionPackages = [ pkgs.niri ];     # adds niri to the gdm display manager
+
+  services.displayManager.sessionPackages = [pkgs.niri]; # adds niri to the gdm display manager
 
   system.stateVersion = "24.11";
 }

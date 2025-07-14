@@ -1,6 +1,4 @@
-  { ... }: 
-
-  {
+{...}: {
   age.identityPaths = [
     "/root/.ssh/mailbox.org_agenix_key"
   ];
@@ -11,4 +9,4 @@
     group = "users";
     mode = "0400";
   };
-  }
+}

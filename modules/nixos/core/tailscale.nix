@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.tailscale;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.tailscale;
+in {
   options.modules.tailscale.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

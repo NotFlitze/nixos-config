@@ -2,15 +2,17 @@
 #   (_-</ -_) '_\ V / -_) '_|
 #   /__/\___|_|  \_/\___|_|
 #
-
-{ config, pkgs, inputs, lib, ... }: 
-
-  {
-    imports =
-    [
-      ../../modules/home-manager/core/_default.nix
-      ../../modules/home-manager/server/_default.nix
-    ];
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
+  imports = [
+    ../../modules/home-manager/core/_default.nix
+    ../../modules/home-manager/server/_default.nix
+  ];
 
   programs.ssh = {
     enable = true;

@@ -1,9 +1,10 @@
-{ config, lib, ... }:
-
-let
-  cfg = config.modules.networkmanager;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.modules.networkmanager;
+in {
   options.modules.networkmanager.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

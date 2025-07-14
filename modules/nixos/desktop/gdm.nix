@@ -1,9 +1,10 @@
-{ config, lib, ... }:
-
-let
-  cfg = config.modules.gdm;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.modules.gdm;
+in {
   options.modules.gdm.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

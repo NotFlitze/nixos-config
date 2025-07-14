@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.hyprland;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.hyprland;
+in {
   options.modules.hyprland.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
@@ -78,7 +80,7 @@ in
           ",XF86MonBrightnessDown,exec,brightnessctl set 5%-"
           ",XF86MonBrightnessUp,exec,brightnessctl set +5%"
         ];
-        
+
         bindm = [
           "$modifier,mouse:272,movewindow"
           "$modifier,mouse:273,resizewindow"
@@ -88,11 +90,11 @@ in
           "waybar"
           "hyprpaper --config ~/.config/hypr/hyprpaper.conf"
         ];
-      }; 
+      };
 
       extraConfig = ''
-        source = ~/.config/hypr/monitors.conf 
-      '';                                                   # managed with nwg-displays
+        source = ~/.config/hypr/monitors.conf
+      ''; # managed with nwg-displays
     };
   };
 }

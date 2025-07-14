@@ -1,9 +1,10 @@
-{ config, lib, ... }:
-
-let
-  cfg = config.modules.printing;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.modules.printing;
+in {
   options.modules.printing.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

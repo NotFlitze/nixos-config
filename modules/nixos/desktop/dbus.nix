@@ -1,9 +1,10 @@
-{ config, lib, ... }:
-
-let
-  cfg = config.modules.dbus;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.modules.dbus;
+in {
   options.modules.dbus.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

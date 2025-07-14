@@ -1,17 +1,19 @@
-#    _           _            
-#   | |__ _ _ __| |_ ___ _ __ 
+#    _           _
+#   | |__ _ _ __| |_ ___ _ __
 #   | / _` | '_ \  _/ _ \ '_ \
 #   |_\__,_| .__/\__\___/ .__/
-#          |_|          |_| 
-
-{ config, pkgs, inputs, lib, ... }: 
-
-  {
-    imports =
-    [
-      ../../modules/home-manager/core/_default.nix
-      ../../modules/home-manager/desktop/_default.nix
-    ];
+#          |_|          |_|
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}: {
+  imports = [
+    ../../modules/home-manager/core/_default.nix
+    ../../modules/home-manager/desktop/_default.nix
+  ];
 
   programs.ssh = {
     enable = true;

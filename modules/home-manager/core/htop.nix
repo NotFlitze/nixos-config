@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.htop;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.htop;
+in {
   options.modules.htop.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

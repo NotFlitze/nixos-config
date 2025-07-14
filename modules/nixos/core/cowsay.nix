@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.cowsay;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.cowsay;
+in {
   options.modules.cowsay.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;
@@ -11,6 +13,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ cowsay ];
+    environment.systemPackages = with pkgs; [cowsay];
   };
 }

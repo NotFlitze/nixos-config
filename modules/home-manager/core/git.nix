@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.git;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.git;
+in {
   options.modules.git.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

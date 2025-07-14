@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.hack_nerd-font;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.hack_nerd-font;
+in {
   options.modules.hack_nerd-font.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
@@ -11,6 +13,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [ nerd-fonts.hack ];
+    home.packages = with pkgs; [nerd-fonts.hack];
   };
 }

@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.allowunfree;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.allowunfree;
+in {
   options.modules.allowunfree.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

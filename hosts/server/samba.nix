@@ -1,8 +1,6 @@
-{ ... }: 
-
-  {
+{...}: {
   # samba config
-services.samba = {
+  services.samba = {
     enable = true;
     openFirewall = true;
     settings = {
@@ -53,4 +51,4 @@ services.samba = {
     enable = true;
     openFirewall = true;
   };
-  }
+}

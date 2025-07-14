@@ -1,9 +1,10 @@
-{ config, lib, ... }:
-
-let
-  cfg = config.modules.gnome;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.modules.gnome;
+in {
   options.modules.gnome.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
@@ -12,6 +13,6 @@ in
 
   config = lib.mkIf cfg.enable {
     services.xserver.desktopManager.gnome.enable = true;
-    programs.dconf.enable = true;                               # you might need to add that even if you remove gnome
+    programs.dconf.enable = true; # you might need to add that even if you remove gnome
   };
 }

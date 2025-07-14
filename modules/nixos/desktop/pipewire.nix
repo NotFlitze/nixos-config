@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.pipewire;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.pipewire;
+in {
   options.modules.pipewire.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

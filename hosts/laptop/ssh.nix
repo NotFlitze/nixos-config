@@ -1,6 +1,4 @@
-{ ... }: 
-
-  {
+{...}: {
   services.openssh = {
     enable = true;
     settings = {
@@ -12,4 +10,4 @@
   users.users."user".openssh.authorizedKeys.keys = [
     ""
   ];
-  }
+}

@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.firefox;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.firefox;
+in {
   options.modules.firefox.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;

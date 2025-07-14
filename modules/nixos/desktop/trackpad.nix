@@ -1,9 +1,10 @@
-{ config, lib, ... }:
-
-let
-  cfg = config.modules.trackpad;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.modules.trackpad;
+in {
   options.modules.trackpad.enable = lib.mkOption {
     type = lib.types.bool;
     default = false;

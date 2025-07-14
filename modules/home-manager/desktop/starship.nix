@@ -35,7 +35,6 @@ in {
           show_always = true;
         };
 
-
         character = {
           success_symbol = "[❯](green)";
           error_symbol = "[❯](red)";

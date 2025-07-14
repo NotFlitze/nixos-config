@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.enableflakes;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.enableflakes;
+in {
   options.modules.enableflakes.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
