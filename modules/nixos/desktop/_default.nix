@@ -17,7 +17,7 @@
     ./keepassxc.nix
     ./libreoffice-still.nix
     ./lmstudio.nix
-    ./modrinth-app.nix
+#    ./modrinth-app.nix
     ./nwg-displays.nix
     ./nwg-look.nix
     ./obsidian.nix

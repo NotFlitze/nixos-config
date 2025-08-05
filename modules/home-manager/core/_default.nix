@@ -4,6 +4,6 @@
     ./fastfetch.nix
     ./git.nix
     ./htop.nix
-#    ./zsh.nix
+    #    ./zsh.nix
   ];
 }

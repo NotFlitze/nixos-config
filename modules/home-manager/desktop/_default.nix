@@ -13,6 +13,7 @@
     ./vesktop.nix
     ./vscodium.nix
     ./waybar.nix
-    #      ./gtk.nix
+    #       ./gtk.nix
+    ./cursor.nix
   ];
 }

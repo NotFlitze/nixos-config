@@ -1,9 +1,11 @@
-{ config, lib, pkgs, ... }:
-
-let
-  cfg = config.modules.zsh;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.modules.zsh;
+in {
   options.modules.zsh.enable = lib.mkOption {
     type = lib.types.bool;
     default = true;
@@ -30,7 +32,7 @@ in
       size = 10000;
       ignoreAllDups = true;
       path = "$HOME/.zsh_history";
-      ignorePatterns = [ ];
+      ignorePatterns = [];
     };
 
     programs.zsh.shellAliases = {
