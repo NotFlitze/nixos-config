@@ -8,7 +8,6 @@
     ./cowsay.nix
     ./enableflakes.nix
     ./ethtool.nix
-    ./fastfetch.nix
     ./hardware.nix
     ./locates.nix
     ./neofetch.nix

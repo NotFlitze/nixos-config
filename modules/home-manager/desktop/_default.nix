@@ -15,5 +15,6 @@
     ./waybar.nix
     #       ./gtk.nix
     ./cursor.nix
+    #       ./swww.nix
   ];
 }

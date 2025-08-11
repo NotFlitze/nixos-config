@@ -5,6 +5,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [

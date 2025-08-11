@@ -26,5 +26,10 @@ in {
       package = pkgs.bibata-cursors;
       size = 10;
     };
+
+    home.sessionVariables = {
+      XCURSOR_THEME = "Bibata-Modern-Classic";
+      XCURSOR_SIZE = "10";
+    };
   };
 }

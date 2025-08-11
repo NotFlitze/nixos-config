@@ -6,6 +6,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -21,6 +22,11 @@
   ];
 
   # test stuff
+
+  environment.systemPackages = [
+    inputs.swww.packages.${pkgs.system}.swww
+    pkgs.xwayland-satellite
+  ];
 
   services.displayManager.sessionPackages = [pkgs.niri]; # adds niri to the gdm display manager
 
