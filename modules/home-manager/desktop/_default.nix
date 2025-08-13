@@ -4,9 +4,9 @@
     ./bibata-cursors.nix
     ./cava.nix
     ./firefox.nix
-    ./hack_nerd-font.nix
-    #      ./hyprland.nix            # switch to niri
+    # ./hyprland.nix            # switch to niri
     #      ./hyprpaper.nix           # switch to swww
+    ./hyprlock.nix
     ./kitty.nix
     ./rofi.nix
     #      ./starship.nix            # not finished
@@ -16,5 +16,6 @@
     #       ./gtk.nix
     ./cursor.nix
     #       ./swww.nix
+    ./wlogout.nix
   ];
 }

@@ -28,6 +28,8 @@
     pkgs.xwayland-satellite
   ];
 
+  security.pam.services.hyprlock = {};
+
   services.displayManager.sessionPackages = [pkgs.niri]; # adds niri to the gdm display manager
 
   system.stateVersion = "25.05";

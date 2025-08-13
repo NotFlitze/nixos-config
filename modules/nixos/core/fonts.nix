@@ -13,6 +13,10 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-    home.packages = with pkgs; [nerd-fonts.hack];
+    fonts.packages = with pkgs; [
+      # nerd-fonts.hack
+      # nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code            #font i use
+    ];
   };
 }

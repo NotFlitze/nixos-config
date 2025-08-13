@@ -83,7 +83,7 @@ in {
           }
           {
             type = "memory";
-            key = " │ 󰑭 ";
+            key = " │  ";
             format = "{1} / {2} {4}";
             percent = {
               type = 2;

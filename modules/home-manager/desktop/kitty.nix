@@ -16,11 +16,11 @@ in {
     programs.kitty = {
       enable = true;
       font = {
-        name = "Hack Nerd Font";
+        name = "Fira Code Nerd Font";
         size = 10;
       };
       settings = {
-        background_opacity = "0.8";
+        background_opacity = "1";
         wheel_scroll_min_lines = 1;
         window_padding_width = 4;
         confirm_os_window_close = 0;

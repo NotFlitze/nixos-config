@@ -23,6 +23,13 @@
 
   # test stuff
 
+  environment.systemPackages = [
+    inputs.swww.packages.${pkgs.system}.swww
+    pkgs.xwayland-satellite
+  ];
+
+  security.pam.services.hyprlock = {};
+
   services.displayManager.sessionPackages = [pkgs.niri]; # adds niri to the gdm display manager
 
   system.stateVersion = "24.11";
